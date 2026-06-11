@@ -1,0 +1,20 @@
+--- openwrt/target/linux/ramips/dts/mt7628an_xiaomi_mi-router-4a-100m.dts	2026-04-27 12:59:53.633714366 +0800
++++ ./mt7628an_xiaomi_mi-router-4a-100m.dts	2026-06-11 23:01:43.494646048 +0800
+@@ -41,15 +41,9 @@
+ };
+ 
+ &partitions {
+-	partition@60000 {
+-		label = "overlay";
+-		reg = <0x60000 0x100000>;
+-		read-only;
+-	};
+-
+-	partition@160000 {
++	partition@30000 {
+ 		label = "firmware";
+-		reg = <0x160000 0xea0000>;
++		reg = <0x30000 0xfd0000>;
+ 		compatible = "denx,uimage";
+ 	};
+ };
