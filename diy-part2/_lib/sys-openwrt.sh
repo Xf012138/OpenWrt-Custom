@@ -75,6 +75,9 @@ modification() {
     # rm -rf feeds/packages/lang/node
     [ -d feeds/kenzo/upx ] && echo '[RM] 删除 kenzo 引用的 coolsnowwolf 源的 upx' && rm -vrf feeds/kenzo/upx*
 
+    # 移除 kenzo 中与 openwrt/packages 冲突的 miniupnpd 包
+    rm -vrf feeds/kenzo/miniupnpd* 
+
     echo
     echo '[FIX] PKG_USE_MIPS16已被openwrt主线弃用，修改外部包的 PKG_USE_MIPS16:=0 为 PKG_BUILD_FLAGS:=no-mips16'
     find -type f -name Makefile -exec sh -c '
