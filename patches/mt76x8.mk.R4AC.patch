@@ -1,0 +1,11 @@
+--- openwrt/target/linux/ramips/image/mt76x8.mk	2026-04-27 12:59:53.653714372 +0800
++++ ./mt76x8.mk	2026-06-12 00:18:01.878623862 +0800
+@@ -1385,7 +1385,7 @@
+ TARGET_DEVICES += wrtnode_wrtnode2r
+ 
+ define Device/xiaomi_mi-router-4a-100m
+-  IMAGE_SIZE := 14976k
++  IMAGE_SIZE := 16192k
+   DEVICE_VENDOR := Xiaomi
+   DEVICE_MODEL := Mi Router 4A
+   DEVICE_VARIANT := 100M Edition
