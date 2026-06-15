@@ -1,0 +1,37 @@
+--- openwrt/target/linux/ramips/dts/mt7628an_xiaomi_mi-router-4.dtsi	2026-04-27 12:59:53.633714366 +0800
++++ ./mt7628an_xiaomi_mi-router-4.dtsi	2026-06-11 23:01:12.770646842 +0800
+@@ -41,14 +41,8 @@
+ 			};
+ 
+ 			partition@20000 {
+-				label = "config";
+-				reg = <0x20000 0x10000>;
+-				read-only;
+-			};
+-
+-			partition@30000 {
+ 				label = "factory";
+-				reg = <0x30000 0x10000>;
++				reg = <0x20000 0x10000>;
+ 				read-only;
+ 
+ 				nvmem-layout {
+@@ -76,18 +70,6 @@
+ 				};
+ 			};
+ 
+-			partition@40000 {
+-				label = "crash";
+-				reg = <0x40000 0x10000>;
+-				read-only;
+-			};
+-
+-			partition@50000 {
+-				label = "cfg_bak";
+-				reg = <0x50000 0x10000>;
+-				read-only;
+-			};
+-
+ 			/* additional partitions in DTS */
+ 		};
+ 	};

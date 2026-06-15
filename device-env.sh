@@ -90,7 +90,18 @@ case $int_part in
         FLASH_SIZE="16M"
         ;;
     7)
-        # undefined
+        DEVICE_TAG="OpenWrt - R4AC"
+        REPO_USE=openwrt/openwrt
+        REPO_BRANCH=master
+#         COMMIT_SHA=latest
+        DEVICE_ARCH="ramips"
+        DIY_P2_SH="diy-part2/diy2arch.sh"
+        DEPENDS=$(curl -fsSL "https://gist.githubusercontent.com/1-1-2/38e424cd9da729f72fa4a495d23271ea/raw/openwrt")
+        SEQ_FILE="testSeq/openwrt.ini"
+        # 新增：新架构参数
+        DEVICE_NAME="Xiaomi_R4AC"
+        SYSTEM_NAME="openwrt"
+        FLASH_SIZE="16M"
         ;;
     *)
         echo "input error"
