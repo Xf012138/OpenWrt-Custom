@@ -10,6 +10,7 @@
 | Newifi D2 (Newifi3)              | MediaTek MT7621AT | 880     | 32       | 512    | MediaTek MT7603EN, MediaTek MT7612EN  | b/g/n    | ac/n    | -          | 5          | -       | 1x 3.0 |
 | RE-SP-01B                        | MediaTek MT7621AT | 880     | 32       | 512    | MediaTek MT7603, MediaTek MT7615      | b/g/n    | ac/n    | -          | 3          | -       | 1x 2.0 |
 | RE-CP-02                         | MediaTek MT7621AT | 880     | 16       | 512    | MediaTek MT7975DN, MediaTek MT7905DAN | ax/b/g/n | ac/ax/n | -          | 4          | Y       | -      |
+| Xiaomi R4AC                      | MT7628AN          | 580     | 16       | 64     | MediaTek MT7628AN, MediaTek MT7612EN  | b/g/n    | ac/n    | 3          | -          | -       | -      |
 
 ## 适配系统
 
@@ -19,10 +20,13 @@
 | Newifi D2 (Newifi3) | ✅                                                   | ✅                                             |                                          |
 | RE-SP-01B           | ✅                                                   | 🧙‍♂️                                             |                                          |
 | RE-CP-02            | 🤪                                                   | 🧙‍♂️                                             | [鲁班固件魔改分区说明](RE-CP-02.md) |
+| Xiaomi R4AC | 🤪 | 🧙‍♂️ | 弃坑，太弱鸡了，建议用 padavan |
 
 ✅-与上游一致 | 🧙‍♂️-基于上游适配 | 🤪-本库未配置
 
 > 对于 RE-CP-02（京东云鲁班），我折腾了一套"不硬改 + 最大榨取 16M 闪存"的方案：魔改 breed bootloader 内嵌 EEPROM/MAC，将固件可用空间推到 **16192 KiB**。详细思路见 [鲁班固件魔改分区说明](RE-CP-02.md)。
+>
+> 同时也在 Xiaomi R4AC 上应用了类似的分区修改思路，详见 [R4AC固件魔改分区说明](Xiaomi_R4AC.md)。
 
 ## 怎么用
 
