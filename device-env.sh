@@ -49,8 +49,8 @@ case $int_part in
         ;;
     4)
         DEVICE_TAG="OpenWrt - Newifi3_D2"
-        REPO_USE=openwrt/openwrt
-        REPO_BRANCH=master
+        REPO_USE=immortalwrt/immortalwrt
+        REPO_BRANCH=openwrt-24.10
 #         COMMIT_SHA=latest
         DEVICE_ARCH="ramips"
         DIY_P2_SH="diy-part2/diy2arch.sh"
