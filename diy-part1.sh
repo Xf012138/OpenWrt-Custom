@@ -39,3 +39,9 @@ EOF
 else
     echo 找不到默认源配置文件[feeds.conf.default]
 fi
+
+# =========================================
+# 添加 rkp-ipid 和 ua2f 源码
+# =========================================
+git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid --depth=1
+git clone https://github.com/Zxilly/UA2F.git package/UA2F --depth=1
