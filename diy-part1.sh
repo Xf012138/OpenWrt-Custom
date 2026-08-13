@@ -43,7 +43,7 @@ fi
 # =========================================
 # 添加 rkp‑ipid、UA2F、UA3F 源码
 # =========================================
+
 git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid --depth=1
 git clone https://github.com/Zxilly/UA2F.git package/UA2F --depth=1
-# 增加 UA3F（24.10分支环境才可以正常编译）
-git clone https://github.com/UA3F/UA3F.git package/UA3F --depth=1
+git clone https://github.com/SunBK201/UA3F.git package/UA3F --depth=1
