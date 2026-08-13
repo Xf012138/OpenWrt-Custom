@@ -108,6 +108,27 @@ CONFIG_PACKAGE_luci-app-ksmbd=y
 # ----------Theme_argon
 CONFIG_PACKAGE_luci-app-argon-config=y
 CONFIG_PACKAGE_luci-theme-argon=y
+
+#=====从lede‑32M迁移过来需要的包=====
+CONFIG_PACKAGE_bash=y
+CONFIG_PACKAGE_htop=y
+CONFIG_PACKAGE_openssh-sftp-server=y
+CONFIG_PACKAGE_luci-app-taskplan=y
+CONFIG_PACKAGE_ipset=y
+CONFIG_PACKAGE_iptables-nft=y
+CONFIG_PACKAGE_iptables-mod-filter=y
+CONFIG_PACKAGE_iptables-mod-u32=y
+CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
+CONFIG_PACKAGE_kmod-ipt-ipopt=y
+CONFIG_PACKAGE_kmod-rkp-ipid=y
+
+#=====UA3F必须的nft模块（全部英文横杠）=====
+CONFIG_PACKAGE_nftables=y
+CONFIG_PACKAGE_kmod-nft-core=y
+CONFIG_PACKAGE_kmod-nft-compat=y
+CONFIG_PACKAGE_xtables-nft=y
+CONFIG_PACKAGE_kmod-nft-queue=y
+CONFIG_PACKAGE_kmod-nft-tproxy=y
 EOF
 }
 
