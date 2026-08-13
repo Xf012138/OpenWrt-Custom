@@ -46,6 +46,9 @@ mod_default_config() {
 }
 
 #=========================================
-# 设备专属补丁（无）
+# 设备专属补丁：扩大firmware(ubi)分区，增大overlay空间
 #=========================================
-target_patch() { :; }
+target_patch() {
+    echo "[target_patch] 正在修改 Newifi‑D2 dts 扩大ubi分区"
+    sed -i 's/reg = <0x080000 0x1780000>/reg = <0x080000 0x1E00000>/' target/linux/ramips/dts/mt7621_newifi_d2.dts
+}
