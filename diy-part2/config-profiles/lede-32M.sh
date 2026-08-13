@@ -92,7 +92,16 @@ CONFIG_PACKAGE_iptables-mod-u32=y
 CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
 CONFIG_PACKAGE_kmod-ipt-ipopt=y
 CONFIG_PACKAGE_kmod-rkp-ipid=y
-CONFIG_PACKAGE_ua2f=y
+#CONFIG_PACKAGE_ua2f=y
+# nftables核心
+CONFIG_PACKAGE_nftables=y
+CONFIG_PACKAGE_kmod‑nft‑core=y
+CONFIG_PACKAGE_kmod‑nft‑compat=y
+CONFIG_PACKAGE_xtables‑nft=y
+
+# UA3F还依赖
+CONFIG_PACKAGE_kmod‑nft‑queue=y
+CONFIG_PACKAGE_kmod‑nft‑tproxy=y
 
 EOF
 }
@@ -140,7 +149,7 @@ CONFIG_PACKAGE_kmod-ipt-ipopt=y
 CONFIG_PACKAGE_kmod-rkp-ipid=y
 
 # ===== 高风险(会接管网络流量) =====
-CONFIG_PACKAGE_ua2f=y
+CONFIG_PACKAGE_=y
 
 EOF
 }
