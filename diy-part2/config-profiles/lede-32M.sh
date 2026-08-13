@@ -80,6 +80,20 @@ CONFIG_PACKAGE_luci-theme-bootstrap=y
 #CONFIG_PACKAGE_luci-app-argonne-config=y
 # ----------luci-app-webadmin
 CONFIG_PACKAGE_luci-app-webadmin=y
+# ----------自定义包
+CONFIG_PACKAGE_bash=y
+CONFIG_PACKAGE_htop=y
+CONFIG_PACKAGE_openssh-sftp-server=y
+CONFIG_PACKAGE_luci-app-taskplan=y
+CONFIG_PACKAGE_ipset=y
+CONFIG_PACKAGE_iptables-nft=y
+CONFIG_PACKAGE_iptables-mod-filter=y
+CONFIG_PACKAGE_iptables-mod-u32=y
+CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
+CONFIG_PACKAGE_kmod-ipt-ipopt=y
+CONFIG_PACKAGE_kmod-rkp-ipid=y
+CONFIG_PACKAGE_ua2f=y
+
 EOF
 }
 
