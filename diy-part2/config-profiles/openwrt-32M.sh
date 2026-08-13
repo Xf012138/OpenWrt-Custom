@@ -106,8 +106,8 @@ CONFIG_PACKAGE_luci-proto-wireguard=y
 # CONFIG_PACKAGE_luci-app-samba4 is not set
 CONFIG_PACKAGE_luci-app-ksmbd=y
 # ----------Theme_argon
-CONFIG_PACKAGE_luci-app-argon-config=y
-CONFIG_PACKAGE_luci-theme-argon=y
+#CONFIG_PACKAGE_luci-app-argon-config=y
+#CONFIG_PACKAGE_luci-theme-argon=y
 
 #=====从lede‑32M迁移过来需要的包=====
 CONFIG_PACKAGE_bash=y
