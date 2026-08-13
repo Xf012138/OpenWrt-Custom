@@ -76,8 +76,8 @@ CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-wrtbwmon=y
 # ----------luci-theme-argon
 CONFIG_PACKAGE_luci-theme-bootstrap=y
-CONFIG_PACKAGE_luci-theme-argonne=y
-CONFIG_PACKAGE_luci-app-argonne-config=y
+#CONFIG_PACKAGE_luci-theme-argonne=y
+#CONFIG_PACKAGE_luci-app-argonne-config=y
 # ----------luci-app-webadmin
 CONFIG_PACKAGE_luci-app-webadmin=y
 EOF
@@ -106,6 +106,28 @@ CONFIG_PACKAGE_luci-app-transmission=y
 CONFIG_PACKAGE_luci-app-watchcat=y
 # ----------luci-app-v2ray-server
 CONFIG_PACKAGE_luci-app-v2ray-server=y
+# ===== 界面类(安全) =====
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-app-ttyd=y
+CONFIG_PACKAGE_luci-app-taskplan=y
+
+# ===== 工具类(安全) =====
+CONFIG_PACKAGE_ipset=y
+CONFIG_PACKAGE_iptables-nft=y
+
+# ===== 模块类(配合规则才生效) =====
+CONFIG_PACKAGE_iptables-mod-filter=y
+CONFIG_PACKAGE_iptables-mod-ipopt=y
+CONFIG_PACKAGE_iptables-mod-u32=y
+CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
+CONFIG_PACKAGE_kmod-ipt-ipopt=y
+
+# ===== 内核模块(开机自加载) =====
+CONFIG_PACKAGE_kmod-rkp-ipid=y
+
+# ===== 高风险(会接管网络流量) =====
+CONFIG_PACKAGE_ua2f=y
+
 EOF
 }
 
