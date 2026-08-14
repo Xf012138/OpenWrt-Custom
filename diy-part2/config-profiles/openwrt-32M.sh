@@ -60,8 +60,17 @@ CONFIG_PACKAGE_usbutils=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-taskplan=y
 
-#===== 你指定的iptables/netfilter全套依赖 =====
+# ----------UA3F 主程序 + LuCI 界面（编译进固件）
+CONFIG_PACKAGE_ua3f=y
+CONFIG_PACKAGE_luci-app-ua3f=y
+
+# ----------UA3F 运行依赖
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_libcurl=y
+
+#===== iptables/netfilter 全套依赖 =====
 CONFIG_PACKAGE_ipset=y
+CONFIG_PACKAGE_kmod-ipt-ipset=y
 CONFIG_PACKAGE_iptables-nft=y
 CONFIG_PACKAGE_iptables-mod-filter=y
 CONFIG_PACKAGE_iptables-mod-u32=y
@@ -69,16 +78,26 @@ CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
 CONFIG_PACKAGE_iptables-mod-ipopt=y
 CONFIG_PACKAGE_iptables-mod-nfqueue=y
 CONFIG_PACKAGE_kmod-ipt-ipopt=y
+CONFIG_PACKAGE_kmod-ipt-filter=y
+CONFIG_PACKAGE_kmod-ipt-u32=y
+CONFIG_PACKAGE_kmod-ipt-conntrack-extra=y
+CONFIG_PACKAGE_kmod-ipt-nfqueue=y
+CONFIG_PACKAGE_kmod-nfnetlink-queue=y
+CONFIG_PACKAGE_kmod-nf-conntrack-netlink=y
+
+#===== rkp-ipid 内核模块（IPID 防检测）=====
 CONFIG_PACKAGE_kmod-rkp-ipid=y
 
-#===== UA3F nftables底层依赖（23.05） =====
+#===== UA3F nftables 底层依赖（23.05）=====
 CONFIG_PACKAGE_nftables=y
 CONFIG_PACKAGE_kmod-nft-core=y
 CONFIG_PACKAGE_kmod-nft-compat=y
 CONFIG_PACKAGE_xtables-nft=y
 CONFIG_PACKAGE_kmod-nft-queue=y
+CONFIG_PACKAGE_kmod-nft-tproxy=y
 CONFIG_PACKAGE_libmnl=y
 CONFIG_PACKAGE_libnetfilter-queue=y
+CONFIG_PACKAGE_libnfnetlink=y
 EOF
 }
 
