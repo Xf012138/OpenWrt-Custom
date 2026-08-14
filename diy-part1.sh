@@ -44,6 +44,10 @@ fi
 # 添加 rkp‑ipid、UA2F、UA3F 源码（适配 immortalwrt‑21.02）
 # =========================================
 
+# =========================================
+# 添加 rkp‑ipid、UA2F、UA3F 源码（适配 immortalwrt‑21.02）
+# =========================================
+
 git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid --depth=1
 git clone https://github.com/Zxilly/UA2F.git package/UA2F --depth=1
 
@@ -57,3 +61,14 @@ sed -i 's/+iptables-mod-tproxy//g' Makefile
 # 修复cmake CMP0135报错
 sed -i '/cmake_policy(SET CMP0135 NEW)/d' src/CMakeLists.txt
 cd ../..
+
+# ==========新增：修复openssl mips汇编报错 放在这里！==========
+sed -i 's/32-1\*4/28/g' package/libs/openssl/crypto/aes/aes-mips.S
+sed -i 's/32-2\*4/24/g' package/libs/openssl/crypto/aes/aes-mips.S
+sed -i 's/32-3\*4/20/g' package/libs/openssl/crypto/aes/aes-mips.S
+sed -i 's/32-4\*4/16/g' package/libs/openssl/crypto/aes/aes-mips.S
+sed -i 's/32-5\*4/12/g' package/libs/openssl/crypto/aes/aes-mips.S
+sed -i 's/32-6\*4/8/g' package/libs/openssl/crypto/aes/aes-mips.S
+sed -i 's/32-7\*4/4/g' package/libs/openssl/crypto/aes/aes-mips.S
+sed -i 's/32-8\*4/0/g' package/libs/openssl/crypto/aes/aes-mips.S
+# ==========================================================
