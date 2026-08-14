@@ -23,14 +23,16 @@
 # =========================================
 [ ! -d package/UA3F ] && git clone https://mirror.ghproxy.com/https://github.com/SunBK201/UA3F.git package/UA3F --depth=1
 [ ! -d package/rkp-ipid ] && git clone https://mirror.ghproxy.com/https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid --depth=1
+
 # Argon主题，旧版无wget-any依赖
 [ ! -d package/luci-theme-argon ] && git clone https://mirror.ghproxy.com/https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon --depth=1
-git -C package/luci-theme-argon checkout 18.06
+[ -d package/luci-theme-argon ] && git -C package/luci-theme-argon checkout 18.06
 
 [ ! -d package/luci-app-argon-config ] && git clone https://mirror.ghproxy.com/https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config --depth=1
-git -C package/luci-app-argon-config checkout 0.9
+[ -d package/luci-app-argon-config ] && git -C package/luci-app-argon-config checkout 0.9
+
 # ======================
 # Newifi3‑D2 DTS扩容补丁（挪到这里，编译前修改设备树）
 # ======================
-sed -i 's/reg = <0x080000 0x1780000>/reg = <0x080000 0x1E00000>/' target/linux/ramips/dts/mt7621_newifi_d2.dts
+sed -i 's/reg = <0x080000 0x1780000>/reg = <0x080000 0x1E00000>/' target/linux/ramips/dts/mt7621_newifi3_d2.dts
 echo "✅ dts分区扩容已完成"
