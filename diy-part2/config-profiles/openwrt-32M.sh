@@ -55,8 +55,8 @@ CONFIG_PACKAGE_wpad-mbedtls=y
 CONFIG_PACKAGE_usbutils=y
 
 # ----------Luci 组件
-CONFIG_PACKAGE_luci-theme-argon=y
-CONFIG_PACKAGE_luci-app-argon-config=y
+#CONFIG_PACKAGE_luci-theme-argon=y
+#CONFIG_PACKAGE_luci-app-argon-config=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-taskplan=y
 
