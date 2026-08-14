@@ -7,7 +7,7 @@
 #
 # File name: config-profiles/openwrt-32M.sh
 # Description: OpenWrt 32M 闪存设备的配置 tier 函数
-#              原位于 Configurator-OpenWrt-32M.sh
+#              Newifi3‑D2 精简版，仅保留UA3F+指定业务包
 #
 
 config_clean() {
@@ -23,108 +23,55 @@ EOF
     #=========================================
     cat << EOF
 CONFIG_LUCI_LANG_zh_Hans=y
-CONFIG_PACKAGE_luci-theme-bootstrap=y
 CONFIG_PACKAGE_luci=y
 CONFIG_PACKAGE_luci-compat=y
-EOF
-    #=========================================
-    # unset some default to avoid duplication
-    #=========================================
-    cat << EOF
 EOF
 }
 
 config_basic() {
     config_clean
     #=========================================
-    # 基础包和应用
+    # 基础包和应用（只保留你需要的）
     #=========================================
     cat << EOF
-# ----------Basic_external_drive
-CONFIG_PACKAGE_automount=y
-CONFIG_PACKAGE_luci-app-hd-idle=y
-CONFIG_PACKAGE_usbutils=y
-# ----------Basic_luci-app-ddns
-CONFIG_PACKAGE_ddns-scripts-cloudflare=y
-CONFIG_PACKAGE_luci-app-ddns=y
-# ----------Basic_luci-cmd
-CONFIG_PACKAGE_luci-app-commands=y
-CONFIG_PACKAGE_luci-app-ttyd=y
-# ----------Basic_network
-CONFIG_PACKAGE_kmod-nft-connlimit=y
-# CONFIG_PACKAGE_wpad-basic-mbedtls is not set
-CONFIG_PACKAGE_wpad-mbedtls=y
-# ----------Basic_small_paks
+# ----------基础工具
 CONFIG_BUSYBOX_CONFIG_BASE64=y
 CONFIG_BUSYBOX_CONFIG_NOHUP=y
 CONFIG_BUSYBOX_CONFIG_SENDMAIL=y
 CONFIG_BUSYBOX_CUSTOM=y
-CONFIG_LIBCURL_SMTP=y
-CONFIG_PACKAGE_fping=y
-CONFIG_PACKAGE_jq=y
-CONFIG_PACKAGE_luci-app-advanced-reboot=y
-CONFIG_PACKAGE_luci-app-advanced=y
-CONFIG_PACKAGE_luci-app-uhttpd=y
-CONFIG_PACKAGE_luci-app-watchcat=y
-CONFIG_PACKAGE_luci-app-wifischedule=y
-CONFIG_PACKAGE_luci-app-wol=y
-# ----------Driver_USB2TTL
-CONFIG_PACKAGE_kmod-usb-serial=m
-CONFIG_PACKAGE_kmod-usb-serial-pl2303=m
-CONFIG_PACKAGE_kmod-usb-serial-ch341=m
-# ----------Func_upnp
-CONFIG_PACKAGE_luci-app-upnp=y
-# ----------STAT_luci-app-statistics
-CONFIG_PACKAGE_luci-app-statistics=y
-# ----------Utilities_knot
-CONFIG_PACKAGE_knot-dig=y
-CONFIG_PACKAGE_knot-host=y
-# ----------Utilities_e2fsprogs
-CONFIG_PACKAGE_e2fsprogs=y
-# ----------Utilities_fdisk
-CONFIG_PACKAGE_fdisk=y
-# ----------Utilities_nettool
-CONFIG_PACKAGE_ca-certificates=m
-CONFIG_PACKAGE_ethtool=y
-CONFIG_PACKAGE_luci-app-iperf3-server=y
-CONFIG_PACKAGE_socat=y
-# ----------Utilities_parted
-CONFIG_PACKAGE_parted=y
-# ----------Basic_paks_openwrt
-CONFIG_PACKAGE_collectd-mod-disk=y
-CONFIG_PACKAGE_collectd-mod-dns=y
-CONFIG_PACKAGE_collectd-mod-ping=y
-CONFIG_PACKAGE_collectd-mod-processes=y
-CONFIG_PACKAGE_collectd-mod-sensors=y
-CONFIG_PACKAGE_collectd-mod-tcpconns=y
-CONFIG_PACKAGE_luci-app-acl=y
-CONFIG_PACKAGE_luci-app-ledtrig-rssi=y
-CONFIG_PACKAGE_luci-app-ledtrig-switch=y
-CONFIG_PACKAGE_luci-app-ledtrig-usbport=y
-CONFIG_PACKAGE_luci-proto-wireguard=y
-# ----------NAS_luci-app-ksmbd
-# CONFIG_PACKAGE_luci-app-samba4 is not set
-CONFIG_PACKAGE_luci-app-ksmbd=y
-# ----------Theme_argon
-#CONFIG_PACKAGE_luci-app-argon-config=y
-#CONFIG_PACKAGE_luci-theme-argon=y
-
-#=====从lede‑32M迁移过来需要的包=====
 CONFIG_PACKAGE_bash=y
 CONFIG_PACKAGE_htop=y
+CONFIG_PACKAGE_jq=y
+CONFIG_PACKAGE_fping=y
+CONFIG_PACKAGE_socat=y
+CONFIG_PACKAGE_ethtool=y
 CONFIG_PACKAGE_openssh-sftp-server=y
+
+# ----------Wireless
+# CONFIG_PACKAGE_wpad-basic-mbedtls is not set
+CONFIG_PACKAGE_wpad-mbedtls=y
+
+# ----------USB基础（Newifi3‑D2有USB）
+CONFIG_PACKAGE_usbutils=y
+
+# ----------Luci 组件
+CONFIG_PACKAGE_luci-theme-argon=y
+CONFIG_PACKAGE_luci-app-argon-config=y
+CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-taskplan=y
+
+#===== 你指定的iptables/netfilter全套依赖 =====
 CONFIG_PACKAGE_ipset=y
 CONFIG_PACKAGE_iptables-nft=y
 CONFIG_PACKAGE_iptables-mod-filter=y
 CONFIG_PACKAGE_iptables-mod-u32=y
 CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
-CONFIG_PACKAGE_iptables-mod-extra=y
 CONFIG_PACKAGE_iptables-mod-ipopt=y
 CONFIG_PACKAGE_iptables-mod-nfqueue=y
 CONFIG_PACKAGE_kmod-ipt-ipopt=y
 CONFIG_PACKAGE_kmod-rkp-ipid=y
 
+#===== UA3F nftables底层依赖（23.05） =====
 CONFIG_PACKAGE_nftables=y
 CONFIG_PACKAGE_kmod-nft-core=y
 CONFIG_PACKAGE_kmod-nft-compat=y
@@ -135,68 +82,17 @@ CONFIG_PACKAGE_libnetfilter-queue=y
 CONFIG_OPENSSL_NO_ASM_MIPS=y
 EOF
 }
+
+# config_func 置空，不再额外增加软件包
 config_func() {
     config_basic
-    #=========================================
-    # 功能包
-    #=========================================
     cat << EOF
-# ----------NAS_luci-app-aria2
-CONFIG_PACKAGE_luci-app-aria2=m
-# ----------NAS_luci-vsftpd
-CONFIG_PACKAGE_luci-app-vsftpd=y
-# ----------NET_PACKAGE_kcptun-client
-CONFIG_PACKAGE_kcptun-client=m
-# ----------QOS_luci-app-nft-qos
-CONFIG_PACKAGE_luci-app-nft-qos=m
-# ----------QOS_luci-sqm
-CONFIG_PACKAGE_luci-app-sqm=y
-# ----------RPX_n2n
-CONFIG_PACKAGE_luci-app-n2n=y
-# ----------Utilities_cfdisk
-CONFIG_PACKAGE_cfdisk=y
-# ----------Test_wangyu_UDPspeeder
-CONFIG_PACKAGE_UDPspeeder=y
-# ----------Test_wangyu_tinyfecVPN
-CONFIG_PACKAGE_luci-app-tinyfecvpn=y
-CONFIG_PACKAGE_tinyfecvpn=y
-# ----------Test_wangyu_udp2raw
-CONFIG_PACKAGE_luci-app-udp2raw=y
-CONFIG_PACKAGE_udp2raw=y
-
 EOF
 }
 
+# config_test 置空
 config_test() {
     config_func
-    #=========================================
-    # 测试域
-    #=========================================
     cat << EOF
-# ----------STAT_luci-app-nlbwmon
-CONFIG_PACKAGE_luci-app-nlbwmon=m
-# ----------STAT_luci-app-vnstat2
-CONFIG_PACKAGE_luci-app-vnstat2=m
-# ----------RPX_nps
-CONFIG_PACKAGE_luci-app-npc=m
-CONFIG_PACKAGE_luci-app-nps=m
-CONFIG_PACKAGE_npc=m
-# ----------Test_ddns-go
-CONFIG_PACKAGE_luci-app-ddns-go=m
-# ----------Test_lucky
-CONFIG_PACKAGE_luci-app-lucky=m
-# ----------rmAD_luci-app-adguardhome
-CONFIG_PACKAGE_luci-app-adguardhome=m
-# CONFIG_PACKAGE_luci-app-adguardhome_INCLUDE_binary is not set
-# ----------Func_luci-app-tinyproxy
-CONFIG_PACKAGE_luci-app-tinyproxy=y
-# ----------Func_luci-app-wechatpush
-CONFIG_PACKAGE_luci-app-wechatpush=y
-# ----------Func_unblockmusic_Go
-CONFIG_PACKAGE_luci-app-unblockmusic=y
-CONFIG_PACKAGE_luci-app-unblockmusic_INCLUDE_UnblockNeteaseMusic_Go=y
-# ----------Test_luci-app-store
-CONFIG_PACKAGE_luci-app-store=y
-
 EOF
 }
