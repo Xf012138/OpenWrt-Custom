@@ -61,8 +61,8 @@ CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-taskplan=y
 
 # ----------UA3F 主程序 + LuCI 界面（编译进固件）
-CONFIG_PACKAGE_ua3f=y
-CONFIG_PACKAGE_luci-app-ua3f=y
+#CONFIG_PACKAGE_ua3f=y
+#CONFIG_PACKAGE_luci-app-ua3f=y
 
 # ----------UA3F 运行依赖
 CONFIG_PACKAGE_curl=y
