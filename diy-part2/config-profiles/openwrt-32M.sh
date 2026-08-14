@@ -133,6 +133,7 @@ CONFIG_PACKAGE_xtables-nft=y
 CONFIG_PACKAGE_kmod-nft-queue=y
 CONFIG_PACKAGE_libmnl=y
 CONFIG_PACKAGE_libnetfilter-queue=y
+CONFIG_OPENSSL_NO_ASM_MIPS=y
 EOF
 }
 
