@@ -17,25 +17,15 @@
 #echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 #echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall' >>feeds.conf.default
 
-#=========================================
-# add feeds
-#=========================================
-if [ -e feeds.conf.default ]; then
-    cat >> feeds.conf.default << EOF
-src-git kenzo https://github.com/kenzok8/small-package
-EOF
-    echo 已增补内容至默认源配置文件[feeds.conf.default]
-    echo ===========feeds.conf.default===========
-    cat feeds.conf.default
-    echo ====================================
-else
-    echo 找不到默认源配置文件[feeds.conf.default]
-fi
-
 # =========================================
 # 添加 rkp‑ipid、UA3F 源码 适配 ImmortalWrt‑23.05
+# 先判断文件夹是否存在，存在就跳过，防止重复clone报错
 # =========================================
-git clone https://github.com/SunBK201/rkp-ipid.git package/rkp-ipid --depth=1
+[ ! -d package/UA3F ] && git clone https://mirror.ghproxy.com/https://github.com/SunBK201/UA3F.git package/UA3F --depth=1
+[ ! -d package/rkp-ipid ] && git clone https://mirror.ghproxy.com/https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid --depth=1
 
-# UA3F v3.6.0
-git clone https://github.com/SunBK201/UA3F.git package/UA3F --depth=1
+# ======================
+# Newifi3‑D2 DTS扩容补丁（挪到这里，编译前修改设备树）
+# ======================
+sed -i 's/reg = <0x080000 0x1780000>/reg = <0x080000 0x1E00000>/' target/linux/ramips/dts/mt7621_newifi_d2.dts
+echo "✅ dts分区扩容已完成"
