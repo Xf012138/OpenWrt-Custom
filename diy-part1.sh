@@ -22,10 +22,10 @@ echo 'src-git taskplan https://github.com/sirpdboy/luci-app-taskplan' >> feeds.c
 # =========================================
 
 # UA3F 主程序
-[ ! -d package/UA3F ] && git clone https://github.com/SunBK201/UA3F.git package/UA3F --depth=1
+#[ ! -d package/UA3F ] && git clone https://github.com/SunBK201/UA3F.git package/UA3F --depth=1
 
 # UA3F LuCI 管理界面
-[ ! -d package/luci-app-ua3f ] && git clone https://github.com/SunBK201/luci-app-ua3f.git package/luci-app-ua3f --depth=1
+#[ ! -d package/luci-app-ua3f ] && git clone https://github.com/SunBK201/luci-app-ua3f.git package/luci-app-ua3f --depth=1
 
 # rkp-ipid 内核模块（IPID 防检测）
 [ ! -d package/rkp-ipid ] && git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid --depth=1
