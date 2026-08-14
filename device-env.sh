@@ -50,14 +50,14 @@ case $int_part in
     4)
         DEVICE_TAG="OpenWrt - Newifi3_D2"
         REPO_USE=immortalwrt/immortalwrt
-        REPO_BRANCH=openwrt-21.02
+        REPO_BRANCH=openwrt-23.05
 #         COMMIT_SHA=latest
         DEVICE_ARCH="ramips"
         DIY_P2_SH="diy-part2/diy2arch.sh"
         DEPENDS=$(curl -fsSL "https://gist.githubusercontent.com/1-1-2/38e424cd9da729f72fa4a495d23271ea/raw/openwrt")
         SEQ_FILE="testSeq/openwrt.ini"
         # 新增：新架构参数
-        DEVICE_NAME="Newifi3D2"
+        DEVICE_NAME="newifi_y1"
         SYSTEM_NAME="openwrt"
         FLASH_SIZE="32M"
         ;;
