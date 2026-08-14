@@ -57,7 +57,7 @@ case $int_part in
         DEPENDS=$(curl -fsSL "https://gist.githubusercontent.com/1-1-2/38e424cd9da729f72fa4a495d23271ea/raw/openwrt")
         SEQ_FILE="testSeq/openwrt.ini"
         # 新增：新架构参数
-        DEVICE_NAME="newifi_y1"
+        DEVICE_NAME="Newifi3D2"
         SYSTEM_NAME="openwrt"
         FLASH_SIZE="32M"
         ;;
