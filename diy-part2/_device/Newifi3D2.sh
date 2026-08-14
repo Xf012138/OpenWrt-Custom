@@ -24,6 +24,27 @@ EOF
 }
 
 #=========================================
+# 需要编译安装的软件包（新增这个 add_packages 函数）
+#=========================================
+add_packages() {
+    add_package ua3f
+    add_package luci-app-ua3f
+    add_package rkp-ipid
+
+    add_package kmod-nf-netlink-queue
+    add_package kmod-nft-queue
+    add_package kmod-nft-tproxy
+    add_package iptables-mod-tproxy
+    add_package iptables-mod-filter
+    add_package iptables-mod-ipopt
+    add_package iptables-mod-u32
+    add_package iptables-mod-conntrack-extra
+
+    add_package ipset
+    add_package iptables-nft
+}
+
+#=========================================
 # 默认配置修改
 #=========================================
 mod_default_config() {
