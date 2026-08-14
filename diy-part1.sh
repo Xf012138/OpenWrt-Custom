@@ -49,7 +49,7 @@ fi
 # =========================================
 
 git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid --depth=1
-git clone https://github.com/Zxilly/UA2F.git package/UA2F --depth=1
+
 
 # UA3F：去掉--depth 1，要拉完整历史才能checkout旧commit
 git clone https://github.com/SunBK201/UA3F.git package/UA3F
