@@ -31,7 +31,6 @@ add_packages() {
     add_package luci-app-ua3f
     add_package rkp-ipid
 
-    add_package kmod-nf-netlink-queue
     add_package kmod-nft-queue
     add_package kmod-nft-tproxy
     add_package iptables-mod-tproxy
@@ -67,9 +66,8 @@ mod_default_config() {
 }
 
 #=========================================
-# 设备专属补丁：扩大firmware(ubi)分区，增大overlay空间
+# 设备专属补丁：dts扩容已经移到 diy-part1.sh，这里只保留空函数，不能删掉target_patch()，框架会调用
 #=========================================
 target_patch() {
-    echo "[target_patch] 正在修改 Newifi‑D2 dts 扩大ubi分区"
-    sed -i 's/reg = <0x080000 0x1780000>/reg = <0x080000 0x1E00000>/' target/linux/ramips/dts/mt7621_newifi_d2.dts
+    echo "[target_patch] dts扩容已迁移至diy-part1.sh，此处跳过"
 }
