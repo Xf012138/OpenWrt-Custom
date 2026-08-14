@@ -41,9 +41,19 @@ else
 fi
 
 # =========================================
-# 添加 rkp‑ipid、UA2F、UA3F 源码
+# 添加 rkp‑ipid、UA2F、UA3F 源码（适配 immortalwrt‑21.02）
 # =========================================
 
 git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid --depth=1
 git clone https://github.com/Zxilly/UA2F.git package/UA2F --depth=1
-git clone https://github.com/SunBK201/UA3F.git package/UA3F --depth=1
+
+# UA3F：去掉--depth 1，要拉完整历史才能checkout旧commit
+git clone https://github.com/SunBK201/UA3F.git package/UA3F
+cd package/UA3F
+# 适配21.02的可用commit
+git checkout 960114470541300490083100441201031034021
+# 删除tproxy硬依赖
+sed -i 's/+iptables-mod-tproxy//g' Makefile
+# 修复cmake CMP0135报错
+sed -i '/cmake_policy(SET CMP0135 NEW)/d' src/CMakeLists.txt
+cd ../..
