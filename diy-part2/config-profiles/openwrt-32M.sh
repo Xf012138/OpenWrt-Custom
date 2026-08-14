@@ -119,16 +119,20 @@ CONFIG_PACKAGE_iptables-nft=y
 CONFIG_PACKAGE_iptables-mod-filter=y
 CONFIG_PACKAGE_iptables-mod-u32=y
 CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
+CONFIG_PACKAGE_iptables-mod-extra=y
+CONFIG_PACKAGE_iptables-mod-ipopt=y
+CONFIG_PACKAGE_iptables-mod-nfqueue=y
 CONFIG_PACKAGE_kmod-ipt-ipopt=y
 CONFIG_PACKAGE_kmod-rkp-ipid=y
 
-#=====UA3F必须的nft模块（全部英文横杠）=====
+#=====UA3F 21.02可用依赖，已移除不存在的kmod‑nft‑tproxy=====
 CONFIG_PACKAGE_nftables=y
 CONFIG_PACKAGE_kmod-nft-core=y
 CONFIG_PACKAGE_kmod-nft-compat=y
 CONFIG_PACKAGE_xtables-nft=y
 CONFIG_PACKAGE_kmod-nft-queue=y
-CONFIG_PACKAGE_kmod-nft-tproxy=y
+CONFIG_PACKAGE_libmnl=y
+CONFIG_PACKAGE_libnetfilter-queue=y
 EOF
 }
 
@@ -144,8 +148,6 @@ CONFIG_PACKAGE_luci-app-aria2=m
 CONFIG_PACKAGE_luci-app-vsftpd=y
 # ----------NET_PACKAGE_kcptun-client
 CONFIG_PACKAGE_kcptun-client=m
-# ----------PAK_tcpdump-mini
-CONFIG_PACKAGE_tcpdump-mini=y
 # ----------QOS_luci-app-nft-qos
 CONFIG_PACKAGE_luci-app-nft-qos=m
 # ----------QOS_luci-sqm
