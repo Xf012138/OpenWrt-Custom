@@ -60,9 +60,9 @@ CONFIG_PACKAGE_usbutils=y
 CONFIG_PACKAGE_luci-app-ttyd=y
 CONFIG_PACKAGE_luci-app-taskplan=y
 
-# ----------UA3F 主程序 + LuCI 界面（编译进固件）
-#CONFIG_PACKAGE_ua3f=y
-#CONFIG_PACKAGE_luci-app-ua3f=y
+# ----------UA3F 主程序 + LuCI 界面（刷机后 ipk 安装，避开 Go 版本问题）
+# CONFIG_PACKAGE_ua3f=y
+# CONFIG_PACKAGE_luci-app-ua3f=y
 
 # ----------UA3F 运行依赖
 CONFIG_PACKAGE_curl=y
@@ -77,11 +77,17 @@ CONFIG_PACKAGE_iptables-mod-u32=y
 CONFIG_PACKAGE_iptables-mod-conntrack-extra=y
 CONFIG_PACKAGE_iptables-mod-ipopt=y
 CONFIG_PACKAGE_iptables-mod-nfqueue=y
+CONFIG_PACKAGE_iptables-mod-tproxy=y
+CONFIG_PACKAGE_iptables-mod-extra=y
+CONFIG_PACKAGE_iptables-mod-nat-extra=y
 CONFIG_PACKAGE_kmod-ipt-ipopt=y
 CONFIG_PACKAGE_kmod-ipt-filter=y
 CONFIG_PACKAGE_kmod-ipt-u32=y
 CONFIG_PACKAGE_kmod-ipt-conntrack-extra=y
+CONFIG_PACKAGE_kmod-ipt-conntrack=y
 CONFIG_PACKAGE_kmod-ipt-nfqueue=y
+CONFIG_PACKAGE_kmod-ipt-tproxy=y
+CONFIG_PACKAGE_kmod-ipt-extra=y
 CONFIG_PACKAGE_kmod-nfnetlink-queue=y
 CONFIG_PACKAGE_kmod-nf-conntrack-netlink=y
 
