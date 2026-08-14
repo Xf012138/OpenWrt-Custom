@@ -61,18 +61,3 @@ sed -i 's/+iptables-mod-tproxy//g' Makefile
 # 修复cmake CMP0135报错
 sed -i '/cmake_policy(SET CMP0135 NEW)/d' src/CMakeLists.txt
 cd ../..
-
-# ==========新增：修复openssl mips汇编报错 放在这里！==========
-if [ -f package/libs/openssl/crypto/aes/aes-mips.S ];then
-sed -i 's/32-1\*4/28/g' package/libs/openssl/crypto/aes/aes-mips.S
-sed -i 's/32-2\*4/24/g' package/libs/openssl/crypto/aes/aes-mips.S
-sed -i 's/32-3\*4/20/g' package/libs/openssl/crypto/aes/aes-mips.S
-sed -i 's/32-4\*4/16/g' package/libs/openssl/crypto/aes/aes-mips.S
-sed -i 's/32-5\*4/12/g' package/libs/openssl/crypto/aes/aes-mips.S
-sed -i 's/32-6\*4/8/g' package/libs/openssl/crypto/aes/aes-mips.S
-sed -i 's/32-7\*4/4/g' package/libs/openssl/crypto/aes/aes-mips.S
-sed -i 's/32-8\*4/0/g' package/libs/openssl/crypto/aes/aes-mips.S
-else
-  echo "openssl aes-mips.S 不存在，跳过sed修补，将使用.config关闭MIPS汇编"
-fi
-# ==========================================================
