@@ -125,7 +125,6 @@ CONFIG_PACKAGE_iptables-mod-nfqueue=y
 CONFIG_PACKAGE_kmod-ipt-ipopt=y
 CONFIG_PACKAGE_kmod-rkp-ipid=y
 
-#=====UA3F 21.02可用依赖，已移除不存在的kmod‑nft‑tproxy=====
 CONFIG_PACKAGE_nftables=y
 CONFIG_PACKAGE_kmod-nft-core=y
 CONFIG_PACKAGE_kmod-nft-compat=y
@@ -136,7 +135,6 @@ CONFIG_PACKAGE_libnetfilter-queue=y
 CONFIG_OPENSSL_NO_ASM_MIPS=y
 EOF
 }
-
 config_func() {
     config_basic
     #=========================================
